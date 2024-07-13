@@ -1,0 +1,52 @@
+@import "../../css/fonts.css";
+body{
+    background-image: url("../../elements/decor_images/webbackground.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+.searchbar{
+    position: sticky;
+    text-align: center;
+    padding-top: 25%;
+    color: white;
+    font-family: "Roboto Slab", serif;
+}
+
+.searchbar h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.searchbar h5{
+    font-size: 20px;
+}
+.inputlink{
+    width: 500px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    padding-right: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.submit_button{
+    font-family: "Roboto Slab", serif;
+    width: 200px;
+    height: 43px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: black;
+    padding-left: 30px;
+    color: white;
+}
+
+.submit_button:hover{
+    background-color: white;
+    color: black;
+    transition-duration: .2s;
+}
+

@@ -1,0 +1,48 @@
+@import "fonts.css";
+body{
+    width: auto;
+    height: 100%;
+    background-image: url("../elements/decor_images/webbackground.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.login_box{
+    text-align: center;
+    padding-top: 5%;
+    font-family: "Roboto Slab", serif;
+}
+
+.login_box h1{
+    font-size: 50px;
+}
+
+.input_box{
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.submit_button{
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+.submit_button:hover {
+    background-color: black;
+    color: white;
+    transition-duration: .2s;
+}
+
+.login_box h5{
+    font-size: 30px;
+    color: white;
+}
