@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Dhaka');
-
+session_start();
 function linkshort($link, $conn){
     $count=0;
     while($count<1){
@@ -13,10 +13,22 @@ function linkshort($link, $conn){
             header('Location: ../index.php?LinkExists');
         }
         else{
-            $query="INSERT INTO link_creation (MainLink,Shortlink) VALUES ('$link','$result')";
-            $outcome = mysqli_query($conn, $query);
-            $count=1;
-            header('Location: ../index.php?Success='.$result);
+            if(empty($_SESSION['user']['id'])){
+                $query="INSERT INTO link_creation (Username,MainLink,Shortlink) VALUES ('Free','$link','$result')";
+                $outcome = mysqli_query($conn, $query);
+                $count=1;
+                header('Location: ../index.php?Success='.$result);
+            }
+            else{
+                $id=$_SESSION['user']['id'];
+                $query="INSERT INTO link_creation (Username,MainLink,Shortlink) VALUES ('$id','$link','$result')";
+                $outcome = mysqli_query($conn, $query);
+                $query="INSERT INTO ".$id." (MainLink, Shortlink) VALUES ('$link','$result')";
+                $outcome = mysqli_query($conn, $query);
+                $count=1;
+                header('Location: ../index.php?Success='.$result);
+            }
+
         }
     }
 }
@@ -65,7 +77,7 @@ function verifyuser($email, $password, $conn)
     $row = mysqli_fetch_array($outcome);
     if (mysqli_num_rows($outcome) > 0){
         if ($password==$row['password']) {
-            session_start();
+
             $_SESSION['user'] = ['id'=>$row['userid'], 'email'=>$row['email'], 'type'=>$row['usertype'], 'status'=> 'Green'];
             $id=$row['userid'];
             $time=date('m/d/Y h:i:s a');

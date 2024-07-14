@@ -1,6 +1,5 @@
 <?php
     include_once ('header.php');
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,8 +21,11 @@
                     $link=$_GET['Success'];
                     echo "<h5>Here’s Your Snack-Sized URL! : </h5> <h2>Shrinkify.com/".$link."</h2>";
                 }
-                elseif(isset($_GET['LinkExists'])){
+                elseif(isset($_GET['LinkExists']) && empty($_SESSION['user']['id'])){
                     echo "<h5>Your Snack-Sized URL Already Exists! Login To Get the Shorten Link. <a href='login.php'>Sign In</a></h5>";
+                }
+                elseif(isset($_GET['LinkExists'])){
+                    echo "<h5>Your Snack-Sized URL Already Exists! Visit Your Home Page. <a href='User_Profile/user_profile.php?UserID='".$_SESSION['user']['id'].">Home Page</a></h5>";
                 }
             ?>
         </form>

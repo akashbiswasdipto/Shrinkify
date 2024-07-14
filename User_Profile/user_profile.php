@@ -32,7 +32,7 @@ else{
     </div>
     <div class="searchbar">
         <h1>Making Long Links Short and Sweet</h1>
-        <form method="POST" ACTION="Controller/web.php?linkshortner=home">
+        <form method="POST" ACTION="../Controller/web.php?linkshortner=home">
             <input type="text" name="largelink" class="inputlink" placeholder="URL getting out of hand? Not anymore..." required>
             <button type="submit" name="submit_home_link" class="submit_button">Shrinkify</button>
             <?php
